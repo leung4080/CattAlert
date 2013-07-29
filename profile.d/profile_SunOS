@@ -1,0 +1,17 @@
+if [ $TERM != "dumb" ]; then
+USERID=`id |cut -f2 -d "="|cut -f1 -d "("`
+case "$0" in
+-sh | -ksh | -jsh | -bash)
+        if [ -z "$USER" ] ; then
+           USER=$LOGNAME
+        fi
+        if [ -z "$LANG" ] ; then
+           LANG=c
+        fi
+        echo "Current User:"$USER "($LANG)"
+        if [ $USERID = "0" ] ; then
+          echo "Running as root ; Be Careful !"
+        fi
+esac
+  
+fi

@@ -1,0 +1,7 @@
+if [ $TERM != "dumb" ]; then
+	echo "Current User:"$USER "($LANG)"
+	USERID=`id |cut -f2 -d "="|cut -f1 -d "("`
+	if [ $USERID = "0" ]; then
+		echo "Running as root ; Be Careful !"
+	fi
+fi
