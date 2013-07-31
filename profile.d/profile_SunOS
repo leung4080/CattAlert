@@ -6,11 +6,11 @@ case "$0" in
            USER=$LOGNAME
         fi
         if [ -z "$LANG" ] ; then
-           LANG=c
+           LANG=C
         fi
         echo "Current User:"$USER "($LANG)"
         if [ $USERID = "0" ] ; then
-          echo "Running as root ; Be Careful !"
+		LANG=C  echo "正在以root超级用户运行，此用户执行的动作可能使系统造成无法恢复的损坏!!"
         fi
 esac
   

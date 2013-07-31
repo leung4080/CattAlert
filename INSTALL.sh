@@ -50,11 +50,11 @@ case $SysType in
     ;;
   SunOS)
       SysRelease=`uname -r`
-      if [ $SysRelease = "5.10" ] ;then 
+
           /bin/cp ./motd_$SysType$SysRelease ./motd
           /usr/sbin/install -f /etc -m 644 ./motd /etc/motd  ; 
           /bin/rm -f ./motd
-      fi
+
       HADChange=`grep "Current User" /etc/profile |wc -l`
       if [ $HADChange  -eq  0 ] ; then
      	  cat ./profile.d/profile_SunOS >> /etc/profile 
@@ -71,7 +71,17 @@ case $SysType in
      	  cat ./profile.d/profile_AIX >> /etc/profile 
     	fi
     ;;
-  HPUX)
+  HP-UX)
+        SysRelease=`uname -r`
+        /bin/cp ./motd_$SysType$SysRelease ./motd
+        /usr/sbin/install -f /etc ./motd /etc/motd 
+        /bin/rm -f ./mot
+
+        HADChange=`grep "Current User" /etc/profile| wc -l `
+        if [ $HADChange  -eq  0 ] ; then
+     	    cat ./profile.d/profile_HP-UX >> /etc/profile 
+    	  fi
+
     ;;
   *)
     ;;

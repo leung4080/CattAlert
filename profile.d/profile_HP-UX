@@ -1,0 +1,10 @@
+if [ $TERM != "dumb" ]; then
+        if [ -z "$LANG" ] ; then
+                LANG=C
+        fi
+        echo "Current User:"$USER "($LANG)"
+        USERID=`id |cut -f2 -d "="|cut -f1 -d "("`
+        if [ $USERID = "0" ]; then
+		LANG=zh_CN.GB18030  echo "正在以root超级用户运行，此用户执行的动作可能使系统造成无法恢复的损坏!!" 
+        fi
+fi

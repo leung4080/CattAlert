@@ -1,11 +1,12 @@
 
 if [ $TERM != "dumb" ] ; then
-echo "Current User:" $USER  "($LANG)"
-if [ $UID -eq 0 ] ; then
-	if [ "$LANG" == "zh_CN.GB18030" ] ; then
-	echo "уЩтзртrootЁ╛╪╤сц╩╖ткппё╛╢ксц╩╖ж╢пп╣д╤╞вВ©идэй╧о╣мЁтЛЁинч╥╗╩ж╦╢╣дкП╩╣!!"
-	elif [ `echo $LANG|awk -F"." '{print $2}'` == "UTF-8" ] ; then
-	echo "Ф╜ёЕ°╗Д╩╔rootХ╤┘Г╨╖Г■╗Ф┬╥Х©░Х║▄О╪▄Ф╜╓Г■╗Ф┬╥Ф┴╖Х║▄Г └Е┼╗Д╫°Е▐╞Х┐╫Д╫©ГЁ╩Г╩÷И─═Ф┬░Ф≈═ФЁ∙Ф│╒Е╓█Г └Ф█÷Е²▐!!"
+	echo "Current User:" $USER  "($LANG)"
+	if [ $UID -eq 0 ] ; then
+		if [ "$LANG" == "zh_CN.GB18030" ] ; then
+		LANG=zh_CN.GB18030  echo "уЩтзртrootЁ╛╪╤сц╩╖ткппё╛╢ксц╩╖ж╢пп╣д╤╞вВ©идэй╧о╣мЁтЛЁинч╥╗╩ж╦╢╣дкП╩╣!!"
+		elif [ `echo $LANG|awk -F"." '{print $2}'` = "UTF-8" ] ; then
+		LANG=zh_CN.UTF-8  echo "уЩтзртrootЁ╛╪╤сц╩╖ткппё╛╢ксц╩╖ж╢пп╣д╤╞вВ©идэй╧о╣мЁтЛЁинч╥╗╩ж╦╢╣дкП╩╣!!"
+		fi
 	fi
-fi
+
 fi
